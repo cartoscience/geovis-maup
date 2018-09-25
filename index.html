@@ -51,8 +51,8 @@
 	  
   var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
     imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
-  L.imageOverlay(imageUrl, imageBounds).addTo(map);
-  controlLayers.addBaseLayer(Esri_WorldImagery, 'ESRI World Imagery basemap');
+  var overlayOne = L.imageOverlay(imageUrl, imageBounds);
+  L.control.layers(overlayOne).addTo(map);
 	  
   </script>
 </body>
