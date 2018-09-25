@@ -49,13 +49,9 @@
   }).addTo(map); 
   controlLayers.addBaseLayer(Esri_WorldImagery, 'ESRI World Imagery');
 	
-  var layers = {
-  	var imageUrl = './mw_cntry_tnspt.png',
-  		imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
-  	L.imageOverlay(imageUrl, imageBounds);
-  };
-  
-  L.control.layers(layers).addTo(map);
+  var imageUrl = './mw_cntry_tnspt.png',
+	imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
+  L.imageOverlay(imageUrl, imageBounds).addTo(map);
 	  
   </script>
 </body>
