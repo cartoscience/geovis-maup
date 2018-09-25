@@ -27,7 +27,7 @@
   <script>
   
   var map = L.map('map', {
-    center: [-13.9626, 33.7741], 
+    center: [-13.247462, 34.308100], 
     zoom: 7,  
     scrollWheelZoom: true
   });
@@ -49,7 +49,7 @@
   }).addTo(map); 
   controlLayers.addBaseLayer(OpenStreetMap_Mapnik, 'OpenStreetMap basemap');
   
-  var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
+  var imageUrl = 'https://github.com/cartoscience/productivity-trends/blob/master/mw_cntry_tnspt.png',
     imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
 	  
