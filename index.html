@@ -41,13 +41,13 @@
   	maxZoom: 10,
   	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map); 
-  controlLayers.addBaseLayer(OpenStreetMap_Mapnik, 'OpenStreetMap basemap');
+  controlLayers.addBaseLayer(OpenStreetMap_Mapnik, 'OpenStreetMap');
 	  
   var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   	maxZoom: 10,
   	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
   }).addTo(map); 
-  controlLayers.addBaseLayer(Esri_WorldImagery, 'ESRI World Imagery basemap');
+  controlLayers.addBaseLayer(Esri_WorldImagery, 'ESRI World Imagery');
 	  
   var imageUrl = 'https://github.com/cartoscience/productivity-trends/blob/master/mw_cntry_tnspt.png',
   	imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
