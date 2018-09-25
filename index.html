@@ -49,15 +49,9 @@
   }).addTo(map); 
   controlLayers.addBaseLayer(OpenStreetMap_Mapnik, 'OpenStreetMap basemap');
   
-  
-  var layers = {
-    var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
-      imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
-    L.imageOverlay(imageUrl, imageBounds).addTo(map);
-  };
- 
-  L.control.layers(layers, {collapsed: false}).addTo(map);
-  
+  var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
+    imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
+  L.imageOverlay(imageUrl, imageBounds).addTo(map);
 	  
   </script>
 </body>
