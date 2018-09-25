@@ -48,10 +48,14 @@
   	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
   }).addTo(map); 
   controlLayers.addBaseLayer(Esri_WorldImagery, 'ESRI World Imagery');
-	  
-  var imageUrl = './mw_cntry_tnspt.png',
-  	imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
-  L.imageOverlay(imageUrl, imageBounds).addTo(map);
+	
+  var layers = {
+  	var imageUrl = './mw_cntry_tnspt.png',
+  		imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
+  	L.imageOverlay(imageUrl, imageBounds);
+  };
+  
+  L.control.layers(layers).addTo(map);
 	  
   </script>
 </body>
