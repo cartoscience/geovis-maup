@@ -41,16 +41,11 @@
   	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>; Product citation: Peter, B. G., Messina, J., and Snapp, S. 2018. A multi-scalar approach to mapping marginal agricultural land: smallholder agriculture in Malawi. Annals of the American Association of Geographers 108(4):989–1005.'
   }).addTo(map); 
   controlLayers.addBaseLayer(OpenStreetMap_Mapnik, 'OpenStreetMap');
-	  
-  var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  	maxZoom: 11,
-  	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community; Product citation: Peter, B. G., Messina, J., and Snapp, S. 2018. A multi-scalar approach to mapping marginal agricultural land: smallholder agriculture in Malawi. Annals of the American Association of Geographers 108(4):989–1005.'
-  }).addTo(map); 
-  controlLayers.addBaseLayer(Esri_WorldImagery, 'ESRI World Imagery');
+	 
 	
   var imageUrl = './mw_cntry_tnspt.png',
 	imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
-  L.imageOverlay(imageUrl, imageBounds).addTo(map);
+  controlLayers.imageOverlay(imageUrl, imageBounds).addTo(map);
 	  
   </script>
 </body>
