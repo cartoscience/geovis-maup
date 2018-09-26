@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+	
 <head>
   <title>productivity-trends</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,9 @@
   body { margin:0; padding:0; }
   #map { position: absolute; top:0; bottom:0; right:0; left:0; }
   </style>
+	
 </head>
+	
 <body>
 	
   <div id="map"></div>
@@ -31,25 +34,17 @@
     	zoom: 7,  
     	scrollWheelZoom: true
   });
-
-  var HERE_hybridDay = L.tileLayer('https://{s}.{base}.maps.cit.api.here.com/maptile/2.1/{type}/{mapID}/hybrid.day/{z}/{x}/{y}/{size}/{format}?app_id={app_id}&app_code={app_code}&lg={language}', {
-	attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>; Peter, B. G., Messina, J., and Snapp, S. 2018. A multi-scalar approach to mapping marginal agricultural land: smallholder agriculture in Malawi. Annals of the American Association of Geographers 108(4):989–1005.',
-	subdomains: '1234',
-	mapID: 'newest',
-	app_id: '<your app_id>',
-	app_code: '<your app_code>',
-	base: 'aerial',
-	maxZoom: 20,
-	type: 'maptile',
-	language: 'eng',
-	format: 'png8',
-	size: '256'
-  }).addTo(map);
+	  
+  var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+  }).addTo(map);	  
 	  
   var imageUrl = './mw_cntry_tnspt.png',
 	imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
 	  
   </script>
+	
 </body>
+	
 </html>
