@@ -43,36 +43,46 @@
 	imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
   
-  var legend = L.control({position: 'bottomright'});
-  
   function getColor(d) {
-  	return d > 1000 ? '#800026' :
-		d > 500  ? '#BD0026' :
-		d > 200  ? '#E31A1C' :
-		d > 100  ? '#FC4E2A' ;
-  }
+        return d === 'low stable'  ? "#de2d26" :
+               d === 'low variable'  ? "#377eb8" :
+               d === 'medium stable' ? "#4daf4a" :
+               d === 'medium variable' ? "#984ea3" :
+	       d === 'high stable' ? "#984ea3" :
+                            "#ff7f00";
+   }
+
+   function style(feature) {
+        return {
+            weight: 1.5,
+            opacity: 1,
+            fillOpacity: 1,
+            radius: 6,
+            fillColor: getColor(feature.properties.TypeOfIssue),
+            color: "grey"
+        };
+   }
 	  
-  legend.onAdd = function (map) {
+  var legend = L.control({position: 'bottomleft'});
+      legend.onAdd = function (map) {
 
-  	var div = L.DomUtil.create('div', 'info legend'),
-		trends = [1000, 500, 200, 100],
-		labels = [],
-		from, to;
+      var div = L.DomUtil.create('div', 'info legend');
+      labels = ['<strong>Categories</strong>'],
+      categories = ['low stable', 'low variable', 'medium stable', 'medium variable', 'high stable', 'high variable'];
 
-	for (var i = 0; i < trends.length; i++) {
-		from = trends[i];
-		to = trends[i + 1];
+      for (var i = 0; i < categories.length; i++) {
 
-		labels.push(
-			'<i style="background:' + getColor(from + 1) + '"></i> ' +
-			from + (to ? '&ndash;' + to : '+'));
-	}
+            div.innerHTML += 
+            labels.push(
+                '<i class="circle" style="background:' + getColor(categories[i]) + '"></i> ' +
+            (categories[i] ? categories[i] : '+'));
 
-	div.innerHTML = labels.join('<br>');
-	return div;
-   };
-
-   legend.addTo(map);
+        }
+        div.innerHTML = labels.join('<br>');
+    return div;
+    };
+	  
+    legend.addTo(map);
 	  
   </script>
 	
