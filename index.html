@@ -16,17 +16,25 @@
   
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
   
+  <!-- Ribbon thanks to https://github.com/simonwhitaker/github-fork-ribbon-css --> 	
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css" />
+  
   <style>
   body { margin:0; padding:0; }
   #map { position: absolute; top:0; bottom:0; right:0; left:0; }
-  
+  .github-fork-ribbon.right-top:before {
+            background-color: #f80; 
+  }
+  .github-fork-ribbon.right-top:after {
+            color: #fff;
+  }
   </style>
 	
 </head>
 	
 <body>
   <div id="map"></div>
-  <a href="https://cartoscience.com"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1000" src="./cartosci_banner.png" alt="cartoscience.com"></a>
+  <a class="github-fork-ribbon right-top" href="https://cartoscience.com" data-ribbon="cartoscience.com" title="cartoscience.com">cartoscience.com</a>
   <script>
   
   var map = L.map('map', {
