@@ -1,6 +1,6 @@
 # Productivity trends
 
-<i>Map under currently under construction</i>
+<i>*Map under currently under construction</i>
 <br>
 <br>
 <i>Please cite</i>:
