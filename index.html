@@ -69,7 +69,7 @@
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
   */
  
-  var raster = L.leafletGeotiff(url = '/images/mwc_ea_pt_4326.tif').addTo(map);
+  var raster = L.leafletGeotiff(url='/images/mwc_ea_pt_4326.tif',options={}).addTo(map);
 	  
   /*
   var img = L.ScalarField.fromGeoTiff(raster);
