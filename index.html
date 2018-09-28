@@ -66,8 +66,9 @@
 	imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
   */
-	  
-  var img = L.ScalarField.fromGeoTiff('./images/mwc_ea_pt_4326.tif');
+ 
+  var raster = L.leafletGeotiff(url = './images/mwc_ea_pt_4326.tif')
+  var img = L.ScalarField.fromGeoTiff(raster);
   var layer = L.canvasLayer.scalarField(img, {
 	  color: chroma.scale('RdPu').domain(img.range),
 	  opacity:0.65
