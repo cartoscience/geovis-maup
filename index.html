@@ -67,7 +67,9 @@
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
   */
  
-  var raster = L.leafletGeotiff(url = './images/mwc_ea_pt_4326.tif')
+  var raster = L.leafletGeotiff(url = './images/mwc_ea_pt_4326.tif').addTo(map);
+	  
+  /*
   var img = L.ScalarField.fromGeoTiff(raster);
   var layer = L.canvasLayer.scalarField(img, {
 	  color: chroma.scale('RdPu').domain(img.range),
@@ -84,7 +86,8 @@
 	  }
   });
   L.control.layers({layer},{},{position: 'bottomleft', collapsed: false}).addTo(map);
-	  
+  */
+  
   </script>
 	
 </body>
