@@ -58,37 +58,24 @@
 	maxZoom: 12
   }).addTo(map);	  
   
-  /*
-  var imageUrl = './images/mw_cntry_tnspt.png',
-	imageBounds = [[-17.140378, 32.6752898], [-9.354546, 35.940911]];
-  L.imageOverlay(imageUrl, imageBounds).addTo(map);
- 
-  var raster = L.leafletGeotiff(url='/images/mwc_ea_pt_4326.tif',options={}).addTo(map);
+  d3.request('./images/mwc_ea_pt_4326.tif').responseType('arraybuffer').get(
+	  function (error, tiffData) {
+		  let s = L.ScalarField.fromGeoTIFF(tiffData.response);
+		  let filter_nodata = function (v) { return >= 0 };
+		  let layer = L.canvasLayer.scalarField(s, {
+			  type: 'colormap',
+			  color: chroma.scale('Spectral').domain([0,360]),
+			  inFilter: filter_nodata
+		  }).addTo(map);
 	  
   /*
-  var img = L.ScalarField.fromGeoTiff(raster);
-  var layer = L.canvasLayer.scalarField(img, {
-	  color: chroma.scale('RdPu').domain(img.range),
-	  opacity:0.65
-  }).addTo(Map);
-  layer.on('click', function (e) {
-	  if (e.value !== null) {
-		  var v = e.value.toFixed(0);
-		  var html = (`<span class="popupText">Category ${v} m</span>`);
-		  var popup = L.popup()
-		  	.setLatLng(e.latlng)
-		  	.setContent(html)
-		  	.openOn(map);
-	  }
-  });
-  L.control.layers({layer},{},{position: 'bottomleft', collapsed: false}).addTo(map);
-  */
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
     var s = L.ScalarField.fromASCIIGrid(asc);
     var layer = L.canvasLayer.scalarField(s).addTo(map);
 
     map.fitBounds(layer.getBounds());
   });
+  */
 	  
   </script>
 	
