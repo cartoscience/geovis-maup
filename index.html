@@ -58,24 +58,12 @@
 	maxZoom: 12
   }).addTo(map);	  
   
-  d3.request('./images/mwc_ea_pt_4326.tif').responseType('arraybuffer').get(
-	  function (error, tiffData) {
-		  let s = L.ScalarField.fromGeoTIFF(tiffData.response);
-		  let filter_nodata = function (v) { return >= 0 };
-		  let layer = L.canvasLayer.scalarField(s, {
-			  type: 'colormap',
-			  color: chroma.scale('Spectral').domain([0,360]),
-			  inFilter: filter_nodata
-		  }).addTo(map);
-	  
-  /*
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
     var s = L.ScalarField.fromASCIIGrid(asc);
     var layer = L.canvasLayer.scalarField(s).addTo(map);
 
     map.fitBounds(layer.getBounds());
   });
-  */
 	  
   </script>
 	
