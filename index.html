@@ -83,7 +83,7 @@
   });
   L.control.layers({layer},{},{position: 'bottomleft', collapsed: false}).addTo(map);
   */
-  d3.text('/images/mwc_ea_pt_4326.asc', function (asc) {
+  d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
     var s = L.ScalarField.fromASCIIGrid(asc);
     var layer = L.canvasLayer.scalarField(s).addTo(map);
 
