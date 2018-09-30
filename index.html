@@ -72,7 +72,7 @@
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
   	var s = L.ScalarField.fromASCIIGrid(asc);
     	var layerone = L.canvasLayer.scalarField(s).addTo(map);
-	layerone.setColor(chroma(colors).classes([1,2,3,4,5,6]));
+	layerone.setColor(chroma.scale(colors));
 	controlLayers.addOverlay(layerone, 'Country level trends');
     	map.fitBounds(layerone.getBounds());
 	  
