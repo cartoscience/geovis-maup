@@ -49,16 +49,16 @@
   <div id="map"></div>
   <a class="github-fork-ribbon right-top" href="https://cartoscience.com" data-ribbon="cartoscience.com" title="cartoscience.com">cartoscience.com</a>
   <script>
+  
+  var map = L.map('map', {
+      scrollWheelZoom: true
+  });
 	  
   var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
   	minZoom: 2,
 	maxZoom: 12
   }).addTo(map);
-	  
-  var map = L.map('map', {
-      scrollWheelZoom: true
-  });
 	  
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
   	var s = L.ScalarField.fromASCIIGrid(asc);
@@ -85,7 +85,7 @@
 	ext: 'png',
 	pane: 'labels'
   }).addTo(map);
-	  
+	  	  
   var imgs = {"Country": layerone};
   L.control.layers(null, imgs, {position: 'topleft', collapsed: false}).addTo(map);
 	  
