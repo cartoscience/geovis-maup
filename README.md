@@ -27,4 +27,6 @@ https://github.com/geotiffjs/geotiff.js
 <br>
 https://github.com/IHCantabria/Leaflet.CanvasLayer.Field
 <br>
+https://github.com/Sumbera/gLayers.Leaflet
+<br>
 https://github.com/leaflet-extras/leaflet-providers 
