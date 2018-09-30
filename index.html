@@ -55,7 +55,7 @@
   });
   
   var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community; Map details: Peter, B. G., Messina, J., and Snapp, S. 2018. A multi-scalar approach to mapping marginal agricultural land: smallholder agriculture in Malawi. Annals of the American Association of Geographers 108(4):989–1005.',
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community;',
   	minZoom: 2,
 	maxZoom: 12
   }).addTo(map);
@@ -77,7 +77,7 @@
   map.getPane('labels').style.zIndex = 650;
   map.getPane('labels').style.pointerEvents = 'none';
   var Stamen_TonerHybrid = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}{r}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	attribution: 'Boundary tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>; Map details: Peter, B. G., Messina, J., and Snapp, S. 2018. A multi-scalar approach to mapping marginal agricultural land: smallholder agriculture in Malawi. Annals of the American Association of Geographers 108(4):989–1005.',
 	subdomains: 'abcd',
 	minZoom: 0,
 	maxZoom: 20,
