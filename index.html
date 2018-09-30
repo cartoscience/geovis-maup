@@ -67,7 +67,7 @@
 	  
     	layerone.on('click', function (e) {
 	    if (e.value !== null) {
-		    let v = e.value.toFixed(1);
+		    let v = e.value//.toFixed(1);
 		    let html = `<span class="popupText">Category: ${v} </span>`;
 		    let popup = L.popup().setLatLng(e.latlng).setContent(html).openOn(map);
 	    }
@@ -86,11 +86,9 @@
 	pane: 'labels'
   }).addTo(map);
   
-  /*
   var base = {'Esri basemap': esri};
   var imgs = {'Country': layerone};
   L.control.layers(base, imgs).addTo(map);
-  */
 	  
   </script>
 	
