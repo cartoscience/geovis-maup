@@ -53,7 +53,12 @@
   var map = L.map('map', {
       scrollWheelZoom: true
   });
-  
+	  
+  var controlLayers = L.control.layers( null, null, {
+  	position: "bottomleft",
+  	collapsed: false
+  }).addTo(map);
+	  
   var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
   	minZoom: 2,
@@ -63,6 +68,7 @@
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
     var s = L.ScalarField.fromASCIIGrid(asc);
     var layer = L.canvasLayer.scalarField(s).addTo(map);
+    controlLayers.addBaseLayer(layer, 'raster layer');
     map.fitBounds(layer.getBounds());
     layer.on('click', function (e) {
 	    if (e.value !== null) {
