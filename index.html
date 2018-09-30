@@ -33,7 +33,7 @@
   <style>
   body { margin:0; padding:0; }
   #map { position: absolute; top:0; bottom:0; right:0; left:0; }
-  #controlBox { position: fixed; margin-bottom: 2%; margin-left: 0px; float: left; background: white; padding: 6px 8px; z-index: 1000; }
+	  
   .github-fork-ribbon.right-top:before {
             background-color: #454545; 
   }
@@ -42,6 +42,7 @@
 	    border-width: 0; 
 	    text-shadow: 0 -.00em rgba(0, 0, 0, 0.5);
   }
+	  
   </style>
 	
 </head>
@@ -59,7 +60,7 @@
   var controlLayers = L.control.layers( null, null, {
   	position: "bottomleft",
   	collapsed: false
-  }).addTo(controlBox);
+  }).addTo(map);
 	  
   var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
