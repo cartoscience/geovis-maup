@@ -54,7 +54,7 @@
       scrollWheelZoom: true
   });
 	  
-  var esriimagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
   	minZoom: 2,
 	maxZoom: 12
@@ -73,10 +73,12 @@
 	    }
     });	  
   });
-	  
-  var base = {"Esri basemap": esriimagery};
-  var imgs = {"Country": layerone};
+  
+  /*
+  var base = {'Esri basemap': esri};
+  var imgs = {'Country': layerone};
   L.control.layers(base, imgs).addTo(map);
+  */
 	  
   map.createPane('labels');
   map.getPane('labels').style.zIndex = 650;
