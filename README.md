@@ -1,6 +1,6 @@
 # Productivity trends
 
-<i>*Under construction</i>
+<i>*Currently under construction...</i>
 <br>
 <br>
 <i>Please cite</i>:
