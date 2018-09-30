@@ -57,7 +57,14 @@
   	minZoom: 2,
 	maxZoom: 12
   }).addTo(map);
-	  
+	    
+  d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
+    var s = L.ScalarField.fromASCIIGrid(asc);
+    var layer = L.canvasLayer.scalarField(s).addTo(map);
+
+    map.fitBounds(layer.getBounds());
+  });
+  
   var Stamen_TonerHybrid = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}{r}.{ext}', {
 	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 	subdomains: 'abcd',
@@ -65,13 +72,6 @@
 	maxZoom: 20,
 	ext: 'png'
   }).addTo(map);
-	  
-  d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
-    var s = L.ScalarField.fromASCIIGrid(asc);
-    var layer = L.canvasLayer.scalarField(s).addTo(map);
-
-    map.fitBounds(layer.getBounds());
-  });
 	  
   </script>
 	
