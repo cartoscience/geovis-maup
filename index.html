@@ -58,16 +58,16 @@
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
   	minZoom: 2,
 	maxZoom: 12
-  }).addTo(map);
+  });
 
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
   	var s = L.ScalarField.fromASCIIGrid(asc);
-    	var layerone = L.canvasLayer.scalarField(s).addTo(map);
+    	var layerone = L.canvasLayer.scalarField(s);
     	map.fitBounds(layerone.getBounds());
 	  
     	layerone.on('click', function (e) {
 	    if (e.value !== null) {
-		    let v = e.value//.toFixed(1);
+		    let v = e.value; //.toFixed(1);
 		    let html = `<span class="popupText">Category: ${v} </span>`;
 		    let popup = L.popup().setLatLng(e.latlng).setContent(html).openOn(map);
 	    }
@@ -85,7 +85,7 @@
 	ext: 'png',
 	pane: 'labels'
   }).addTo(map);
-  
+	  
   var base = {'Esri basemap': esri};
   var imgs = {'Country': layerone};
   L.control.layers(base, imgs).addTo(map);
