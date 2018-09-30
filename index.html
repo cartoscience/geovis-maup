@@ -72,9 +72,10 @@
 		    let popup = L.popup().setLatLng(e.latlng).setContent(html).openOn(map);
 	    }
     });
-
+    
+    var base = {Esri_WorldImagery};
     var imgs = {layer1};
-    L.control.layers({}, imgs, {
+    L.control.layers(base, imgs, {
 	    position: 'bottomleft',
 	    collapsed: false
     }).addTo(map);
