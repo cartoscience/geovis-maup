@@ -63,7 +63,7 @@
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
     var s = L.ScalarField.fromASCIIGrid(asc);
     var layerone = L.canvasLayer.scalarField(s).addTo(map);
-    map.fitBounds(layer.getBounds());
+    map.fitBounds(layerone.getBounds());
 	  
     layerone.on('click', function (e) {
 	    if (e.value !== null) {
@@ -74,11 +74,9 @@
     });	  
   });
   
-  /*
   var base = {'Esri basemap': esri};
   var imgs = {'Country': layerone};
   L.control.layers(base, imgs).addTo(map);
-  */
 	  
   map.createPane('labels');
   map.getPane('labels').style.zIndex = 650;
