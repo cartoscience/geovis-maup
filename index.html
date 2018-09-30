@@ -66,9 +66,9 @@
     map.fitBounds(layer.getBounds());
     layer.on('click', function (e) {
 	    if (e.value !== null) {
-		    let v = e.value.toFixed(0);
+		    let v = e.value.toFixed(3);
 		    let html = `<span class="popupText">Category ${v} m/s</span>`;
-		    let popup = L.popup.setLatLng(e.latlng).setContent(html).openOn(map);
+		    let popup = L.popup().setLatLng(e.latlng).setContent(html).openOn(map);
 	    }
     });
   });
