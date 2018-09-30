@@ -62,19 +62,19 @@
 
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
     var s = L.ScalarField.fromASCIIGrid(asc);
-    var layer = L.canvasLayer.scalarField(s).addTo(map);
-    controlLayers.addBaseLayer(layer, 'raster layer');
+    var layer1 = L.canvasLayer.scalarField(s).addTo(map);
     map.fitBounds(layer.getBounds());
 	  
-    layer.on('click', function (e) {
+    layer1.on('click', function (e) {
 	    if (e.value !== null) {
 		    let v = e.value.toFixed(0);
 		    let html = `<span class="popupText">Category: ${v} </span>`;
 		    let popup = L.popup().setLatLng(e.latlng).setContent(html).openOn(map);
 	    }
     });
-	  
-    L.control.layers({}, layer, {
+
+    var imgs = {layer1};
+    L.control.layers({}, imgs, {
 	    position: 'bottomleft',
 	    collapsed: false
     }).addTo(map);
