@@ -64,7 +64,7 @@
   var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
   	minZoom: 2,
-	maxZoom: 12
+	maxZoom: 14
   }).addTo(map);
 	  
   var colors = ['#f1c468', '#e2783e', '#8ccbce', '#296597', '#a1c453', '#4e8f42'];
@@ -91,8 +91,8 @@
   var Stamen_TonerHybrid = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}{r}.{ext}', {
 	attribution: 'Boundary tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>; Map design by Brad G. Peter, &copy <a href="https://cartoscience.com/multiscalar-decision-support">CartoScience</a>, <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> &mdash; Map and manuscript published by &copy <a href="https://www.tandfonline.com/doi/abs/10.1080/24694452.2017.1403877">AAG</a>.',
 	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 20,
+	minZoom: 2,
+	maxZoom: 14,
 	ext: 'png',
 	pane: 'labels'
   }).addTo(map);
