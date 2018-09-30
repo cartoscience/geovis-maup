@@ -58,8 +58,7 @@
   });
   
   var controlLayers = L.control.layers( null, null, {
-  	position: "bottomleft",
-  	collapsed: false
+  	position: "topleft"
   }).addTo(map);
 	  
   var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
