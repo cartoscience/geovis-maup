@@ -95,22 +95,28 @@
 	ext: 'png',
 	pane: 'labels'
   }).addTo(map);
-  */	   
-  var legend = L.control({position: 'bottomleft'});
-
-  legend.onAdd = function (map) {
-
-  	var div = L.DomUtil.create('div', 'info legend'),
-		var labels = ["lv", "ls", "mv", "ms", "hv", "hs"],
-	        var legColors = ['f1c468', 'e2783e', '8ccbce', '296597', 'a1c453', '4e8f42'];
+  */	 
 	  
-	for (var i = 0; i < labels.length; i++) {
-		div.innerHTML += labels[i] + '<br>';
-	}
-	return div;
-  };
+var legend = L.control({position: 'bottomleft'});
+    legend.onAdd = function (map) {
 
-  legend.addTo(map);
+    var div = L.DomUtil.create('div', 'info legend');
+    labels = ['<strong>cat</strong>'],
+    categories = ['t1','t2','t3','t4','t5'],
+    var cols = ['#f1c468', '#e2783e', '#8ccbce', '#296597', '#a1c453', '#4e8f42'];
+
+    for (var i = 0; i < categories.length; i++) {
+
+            div.innerHTML += 
+            labels.push(
+                '<i class="circle" style="background:' + cols[i] + '"></i> ' +
+            (categories[i] ? categories[i] : '+'));
+
+    }
+    div.innerHTML = labels.join('<br>');
+    return div;
+    };
+    legend.addTo(map);
 
 	  
   </script>
