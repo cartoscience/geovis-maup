@@ -84,7 +84,7 @@
 	    }
     	});	  
   });
-  /*	  
+  	  
   map.createPane('labels');
   map.getPane('labels').style.zIndex = 650;
   map.getPane('labels').style.pointerEvents = 'none';
@@ -96,7 +96,6 @@
 	ext: 'png',
 	pane: 'labels'
   }).addTo(map);
-  */	 
   	  
   function getColor(d) {
         return d === 'low stable'      ? "#f1c468" :
@@ -106,19 +105,7 @@
 	       d === 'high stable'     ? "#a1c453" :
                                          "#4e8f42" ;
   }
-  
-  function style(feature) {
-        return {
-            weight: 1.5,
-            opacity: 1,
-            fillOpacity: 1,
-            radius: 6,
-            fillColor: getColor(feature.properties.TypeOfIssue),
-            color: "grey"
-
-        };
-   }
-	  
+  	  
   var legend = L.control({position: 'bottomleft'});
   legend.onAdd = function (map) {
 
@@ -130,7 +117,7 @@
 
             div.innerHTML += 
             labels.push(
-                '<i class="circle" style="background:' + getColor(categories[i]) + '"></i> ' +
+                '<i style="background:' + getColor(categories[i]) + '"></i> ' +
             (categories[i] ? categories[i] : '+'));
 
         }
