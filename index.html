@@ -104,10 +104,13 @@
 
   	var div = L.DomUtil.create('div', 'legend'),
 		var labels = ["lv", "ls", "mv", "ms", "hv", "hs"],
+		var grades = [1, 2, 3, 4, 5, 6],
 	        var legColors = ['#f1c468', '#e2783e', '#8ccbce', '#296597', '#a1c453', '#4e8f42'];
 	  
-	for (var i = 0; i < labels.length; i++) {
-		div.innerHTML += '<i style="background:' + legColors[i] + '">&nbsp;&nbsp;</i>&nbsp;&nbsp;' + labels[i] + '<br />';
+	for (var i = 0; i < grades.length; i++) {
+		div.innerHTML += '<i style="background:' 
+		+ legColors[i] + '">&nbsp;&nbsp;</i>&nbsp;&nbsp;' 
+		+ labels[i] + '<br />';
 	}
 	return div;
   };
