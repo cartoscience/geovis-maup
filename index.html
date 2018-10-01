@@ -106,25 +106,25 @@
                                          "#4e8f42";
   }
  
-  var legend = L.control({position: 'bottomright'});
-   legend.onAdd = function (map) {
-   	var div = L.DomUtil.create('div', 'info legend'),
-			grades = ['low stable','low variable','medium stable','medium variable','high stable','high variable'],
-			labels = [],
-			from, to;
- 	for (var i = 0; i < grades.length; i++) {
-			from = grades[i];
-			to = grades[i + 1];
- 			labels.push(
-				'<i style="background:' + getColor(from + 1) + '"></i> ' +
-				from + (to ? '&ndash;' + to : '+'));
-	}
- 	div.innerHTML = labels.join('<br>');
-	return div;
-  };
-   legend.addTo(map);
+  var legend = L.control({position: 'bottomleft'});
+  legend.onAdd = function (map) {
 
-	  
+  	var div = L.DomUtil.create('div', 'info legend'),
+    	    labels = ['<strong>Category</strong>'],
+    	    categories = ['low stable','low variable','medium stable','medium variable','high stable','high variable'];
+
+    	for (var i = 0; i < categories.length; i++) {
+
+            div.innerHTML += 
+            labels.push(
+                '<i class="circle" style="background:' + getColor(categories[i]) + '"></i> ' +
+            (categories[i] ? categories[i] : '+'));
+
+        }
+        div.innerHTML = labels.join('<br>');
+    	return div;
+  };
+  legend.addTo(map);	  
   </script>
 	
 </body>
