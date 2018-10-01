@@ -63,7 +63,7 @@
   	var sd = L.ScalarField.fromASCIIGrid(asc);
     	var layerd = L.canvasLayer.scalarField(sd).addTo(map);
 	layerd.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-	//controlLayers.addBaseLayer(layerd, 'District level'); //addOverlay
+	controlLayers.addBaseLayer(layerd, 'District level'); //addOverlay
     		  
     	layerd.on('click', function (ed) {
 	    if (ed.value !== null) {
@@ -72,33 +72,24 @@
 		    var popupd = L.popup().setLatLng(ed.latlng).setContent(htmld).openOn(map);
 	    }
     	});	  
-	  
-  	d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
-  		var sc = L.ScalarField.fromASCIIGrid(asc);
-    		var layerc = L.canvasLayer.scalarField(sc).addTo(map);
-		layerc.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-		//controlLayers.addBaseLayer(layerc, 'Country level'); 
-		//map.fitBounds(layerc.getBounds());
-	  
-    		layerc.on('click', function (ec) {
-	    	if (ec.value !== null) {
-		    	var vc = ec.value; //.toFixed(1);
-		    	var htmlc = `<span class="popupText">Category: ${vc} </span>`;
-		    	var popupc = L.popup().setLatLng(ec.latlng).setContent(htmlc).openOn(map);
-	    	}
-    		});	  
-  		  
-		var baseMaps = {
-       			"Country level": layerc,
-    			"District level": layerd
-  		};
-	
-  		L.control.layers(baseMaps,{}).addTo(map);
-	});
   });
 	  
+  d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
+  	var sc = L.ScalarField.fromASCIIGrid(asc);
+    	var layerc = L.canvasLayer.scalarField(sc).addTo(map);
+	layerc.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
+	controlLayers.addBaseLayer(layerc, 'Country level'); 
+	map.fitBounds(layerc.getBounds());
 	  
-  map.fitBounds(layerc.getBounds());	  
+    	layerc.on('click', function (ec) {
+	    if (ec.value !== null) {
+		    var vc = ec.value; //.toFixed(1);
+		    var htmlc = `<span class="popupText">Category: ${vc} </span>`;
+		    var popupc = L.popup().setLatLng(ec.latlng).setContent(htmlc).openOn(map);
+	    }
+    	});	  
+  });
+	    
   map.createPane('labels');
   map.getPane('labels').style.zIndex = 650;
   map.getPane('labels').style.pointerEvents = 'none';
@@ -152,3 +143,6 @@
 </body>
 	
 </html>
+
+
+
