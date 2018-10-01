@@ -1,4 +1,9 @@
-# Productivity trends
+# Productivity trends - Geovisualizing MAUP
+<br>
+<b>Geovisualizing the modifiable areal unit problem<b>
+<br>
+<i>"Quite simply, the areal units (zonal objects) used in many geographical studies are arbitrary, modifiable, and subject to the whims and fancies of whoever is doing, or did, the aggregating"—Openshaw (1984)</i>
+<br>
 <br>
 <i>Please cite</i>:
 <br>
