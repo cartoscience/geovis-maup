@@ -69,22 +69,6 @@
   }).addTo(map);
 	  
   var colors = ['#f1c468', '#e2783e', '#8ccbce', '#296597', '#a1c453', '#4e8f42'];
-      
-  d3.text('./images/mwd_ea_pt_4326.asc', function (asc) {
-  	var sd = L.ScalarField.fromASCIIGrid(asc);
-    	var layerd = L.canvasLayer.scalarField(sd).addTo(map);
-	layerd.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-	controlLayers.addOverlay(layerd, 'District level'); //addBaseLayer
-    	map.fitBounds(layerd.getBounds());
-	  
-    	layerd.on('click', function (ed) {
-	    if (ed.value !== null) {
-		    var vd = ed.value; //.toFixed(1);
-		    var htmld = `<span class="popupText">Category: ${vd} </span>`;
-		    var popupd = L.popup().setLatLng(ed.latlng).setContent(htmld).openOn(map);
-	    }
-    	});	  
-  });
 
   d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
   	var sc = L.ScalarField.fromASCIIGrid(asc);
@@ -97,6 +81,22 @@
 		    var vc = ec.value; //.toFixed(1);
 		    var htmlc = `<span class="popupText">Category: ${vc} </span>`;
 		    var popupc = L.popup().setLatLng(ec.latlng).setContent(htmlc).openOn(map);
+	    }
+    	});	  
+  });
+	  
+  d3.text('./images/mwd_ea_pt_4326.asc', function (asc) {
+  	var sd = L.ScalarField.fromASCIIGrid(asc);
+    	var layerd = L.canvasLayer.scalarField(sd).addTo(map);
+	layerd.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
+	controlLayers.addOverlay(layerd, 'District level'); //addBaseLayer
+    	map.fitBounds(layerd.getBounds());
+	  
+    	layerd.on('click', function (ed) {
+	    if (ed.value !== null) {
+		    var vd = ed.value; //.toFixed(1);
+		    var htmld = `<span class="popupText">Category: ${vd} </span>`;
+		    var popupd = L.popup().setLatLng(ed.latlng).setContent(htmld).openOn(map);
 	    }
     	});	  
   });
