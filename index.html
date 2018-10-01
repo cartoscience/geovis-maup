@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   
-  // <!-- Thanks to the following creators -->	
-  // <!-- https://github.com/Leaflet/Leaflet -->
-  // <!-- https://github.com/JackDougherty/leaflet-map-simple -->
-  // <!-- https://github.com/simonwhitaker/github-fork-ribbon-css --> 
-  // <!-- https://github.com/gka/chroma.js -->	
-  // <!-- https://github.com/d3/d3 -->	
-  // <!-- https://github.com/geotiffjs/geotiff.js -->
-  // <!-- https://github.com/IHCantabria/Leaflet.CanvasLayer.Field -->
-  // <!-- https://github.com/leaflet-extras/leaflet-providers --> 
+  <!-- Thanks to the following creators -->	
+  <!-- https://github.com/Leaflet/Leaflet -->
+  <!-- https://github.com/JackDougherty/leaflet-map-simple -->
+  <!-- https://github.com/simonwhitaker/github-fork-ribbon-css --> 
+  <!-- https://github.com/gka/chroma.js -->	
+  <!-- https://github.com/d3/d3 -->	
+  <!-- https://github.com/geotiffjs/geotiff.js -->
+  <!-- https://github.com/IHCantabria/Leaflet.CanvasLayer.Field -->
+  <!-- https://github.com/leaflet-extras/leaflet-providers --> 
 	
 <head>
   <title>productivity-trends</title>
@@ -103,11 +103,11 @@
   legend.onAdd = function (map) {
 
   	var div = L.DomUtil.create('div', 'legend'),
-		labels = ["lv", "ls", "mv", "ms", "hv", "hs"],
-	        grades = [1, 2, 3, 4, 5, 6];
+		var labels = ["lv", "ls", "mv", "ms", "hv", "hs"],
+	        var legColors = ['#f1c468', '#e2783e', '#8ccbce', '#296597', '#a1c453', '#4e8f42'];
 	  
-	for (var i = 0; i < grades.length; i++) {
-		div.innerHTML+='<i style="background:'+getColor(grades[i])+' ">&nbsp;</i>&nbsp;+labels[i]+'<br/>';
+	for (var i = 0; i < labels.length; i++) {
+		div.innerHTML+='<i style="background:'+legColors[i]+'">&nbsp;&nbsp;</i>&nbsp;&nbsp;+labels[i]+'<br/>';
 	}
 	return div;
   };
