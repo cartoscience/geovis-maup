@@ -105,7 +105,19 @@
 	       d === 'high stable'     ? "#a1c453" :
                                          "#4e8f42" ;
   }
- 
+  
+  function style(feature) {
+        return {
+            weight: 1.5,
+            opacity: 1,
+            fillOpacity: 1,
+            radius: 6,
+            fillColor: getColor(feature.properties.TypeOfIssue),
+            color: "grey"
+
+        };
+   }
+	  
   var legend = L.control({position: 'bottomleft'});
   legend.onAdd = function (map) {
 
