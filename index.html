@@ -59,7 +59,7 @@
   });
   
   var controlLayers = L.control.layers( null, null, {
-  	position: "topleft"
+  	position: "bottomright"
   }).addTo(map);
 	  
   var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -116,7 +116,7 @@
 	};
   }
 	  
-  var legend = L.control({position: 'bottomleft'});
+  var legend = L.control({position: 'topleft'});
   legend.onAdd = function (map) {
 
   	var div = L.DomUtil.create('div', 'info legend'),
