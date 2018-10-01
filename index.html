@@ -80,7 +80,6 @@
 	layerc.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
 	controlLayers.addBaseLayer(layerc, 'Country level'); 
 	map.fitBounds(layerd.getBounds());
-	layerc.bringToFront();
 	  
     	layerc.on('click', function (ec) {
 	    if (ec.value !== null) {
