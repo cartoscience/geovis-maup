@@ -72,30 +72,31 @@
 		    var popupd = L.popup().setLatLng(ed.latlng).setContent(htmld).openOn(map);
 	    }
     	});	  
-  });
 	  
-  d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
-  	var sc = L.ScalarField.fromASCIIGrid(asc);
-    	var layerc = L.canvasLayer.scalarField(sc).addTo(map);
-	layerc.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-	//controlLayers.addBaseLayer(layerc, 'Country level'); 
-	//map.fitBounds(layerc.getBounds());
+  	d3.text('./images/mwc_ea_pt_4326.asc', function (asc) {
+  		var sc = L.ScalarField.fromASCIIGrid(asc);
+    		var layerc = L.canvasLayer.scalarField(sc).addTo(map);
+		layerc.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
+		//controlLayers.addBaseLayer(layerc, 'Country level'); 
+		//map.fitBounds(layerc.getBounds());
 	  
-    	layerc.on('click', function (ec) {
-	    if (ec.value !== null) {
-		    var vc = ec.value; //.toFixed(1);
-		    var htmlc = `<span class="popupText">Category: ${vc} </span>`;
-		    var popupc = L.popup().setLatLng(ec.latlng).setContent(htmlc).openOn(map);
-	    }
-    	});	  
-  });
-	  
-  var baseMaps = {
-    "Country level": layerc,
-    "District level": layerd
-  };
+    		layerc.on('click', function (ec) {
+	    	if (ec.value !== null) {
+		    	var vc = ec.value; //.toFixed(1);
+		    	var htmlc = `<span class="popupText">Category: ${vc} </span>`;
+		    	var popupc = L.popup().setLatLng(ec.latlng).setContent(htmlc).openOn(map);
+	    	}
+    		});	  
+  		  
+		var baseMaps = {
+       			"Country level": layerc,
+    			"District level": layerd
+  		};
 	
-  L.control.layers(baseMaps,{}).addTo(map);
+  		L.control.layers(baseMaps,{}).addTo(map);
+	});
+  });
+	  
 	  
   map.fitBounds(layerc.getBounds());	  
   map.createPane('labels');
