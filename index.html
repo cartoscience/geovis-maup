@@ -63,7 +63,7 @@
   	var sd = L.ScalarField.fromASCIIGrid(asc);
     	var layerd = L.canvasLayer.scalarField(sd).addTo(map);
 	layerd.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-	controlLayers.addBaseLayer(layerd, 'District level'); //addOverlay
+	//controlLayers.addBaseLayer(layerd, 'District level'); //addOverlay
     		  
     	layerd.on('click', function (ed) {
 	    if (ed.value !== null) {
@@ -78,8 +78,8 @@
   	var sc = L.ScalarField.fromASCIIGrid(asc);
     	var layerc = L.canvasLayer.scalarField(sc).addTo(map);
 	layerc.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-	controlLayers.addBaseLayer(layerc, 'Country level'); 
-	map.fitBounds(layerc.getBounds());
+	//controlLayers.addBaseLayer(layerc, 'Country level'); 
+	//map.fitBounds(layerc.getBounds());
 	  
     	layerc.on('click', function (ec) {
 	    if (ec.value !== null) {
@@ -89,7 +89,15 @@
 	    }
     	});	  
   });
-	    
+	  
+  var baseMaps = {
+    "Country level": layerc,
+    "District level": layerd
+  };
+	
+  L.control.layers(baseMaps,{}).addTo(map);
+	  
+  map.fitBounds(layerc.getBounds());	  
   map.createPane('labels');
   map.getPane('labels').style.zIndex = 650;
   map.getPane('labels').style.pointerEvents = 'none';
