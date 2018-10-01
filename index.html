@@ -96,27 +96,33 @@
 	pane: 'labels'
   }).addTo(map);
   */	 
-	  
-  var legend = L.control({position: 'bottomleft'});
-  legend.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>cat</strong>'],
-    categories = ['t1','t2','t3','t4','t5'],
-    var cols = ['#f1c468', '#e2783e', '#8ccbce', '#296597', '#a1c453', '#4e8f42'];
-
-    for (var i = 0; i < categories.length; i++) {
-
-            div.innerHTML += 
-            labels.push(
-                '<i class="circle" style="background:' + '"></i> ' +
-            (categories[i] ? categories[i] : '+'));
-
-    }
-    div.innerHTML = labels.join('<br>');
-    return div;
+  	  
+  function getColor(d) {
+        return d === 'low stable'      ? "#f1c468'" :
+               d === 'low variable'    ? "#e2783e" :
+               d === 'medium stable'   ? "#8ccbce" :
+               d === 'medium variable' ? "#296597" :
+	       d === 'high stable'     ? "#a1c453" :
+                                         "#4e8f42";
+  }
+ 
+  var legend = L.control({position: 'bottomright'});
+   legend.onAdd = function (map) {
+   	var div = L.DomUtil.create('div', 'info legend'),
+			grades = ['low stable','low variable','medium stable','medium variable','high stable','high variable'],
+			labels = [],
+			from, to;
+ 	for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+ 			labels.push(
+				'<i style="background:' + getColor(from + 1) + '"></i> ' +
+				from + (to ? '&ndash;' + to : '+'));
+	}
+ 	div.innerHTML = labels.join('<br>');
+	return div;
   };
-  legend.addTo(map);
+   legend.addTo(map);
 
 	  
   </script>
