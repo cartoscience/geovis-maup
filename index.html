@@ -50,7 +50,6 @@
 	
 <body>
   <div id="map"></div>
-  <div id="controlBox"></div>
   <a class="github-fork-ribbon right-top" href="https://cartoscience.com" data-ribbon="cartoscience.com" title="cartoscience.com">cartoscience.com</a>
   <script>
   
@@ -85,7 +84,7 @@
 	    }
     	});	  
   });
-	  
+  /*	  
   map.createPane('labels');
   map.getPane('labels').style.zIndex = 650;
   map.getPane('labels').style.pointerEvents = 'none';
@@ -97,30 +96,24 @@
 	ext: 'png',
 	pane: 'labels'
   }).addTo(map);
+  */	  
+  var legend = L.control({position: 'bottomleft'});
+
+  legend.onAdd = function (map) {
+
+  	var div = L.DomUtil.create('div', 'legend'),
+		var labels = ["lv", "ls", "mv", "ms", "hv", "hs"],
+	        var legColors = ['f1c468', 'e2783e', '8ccbce', '296597', 'a1c453', '4e8f42'];
 	  
-  var legend = L.control({position: 'bottomright'});
-
-	legend.onAdd = function (map) {
-
-	var div = L.DomUtil.create('div', 'info legend'),
-			grades = [1, 2, 3, 4, 5, 6],
-			labels = [],
-			from, to;
-
-	for (var i = 0; i < grades.length; i++) {
-			from = grades[i];
-			to = grades[i + 1];
-
-			labels.push(
-				'<i style="background:' + getColor(from + 1) + '"></i> ' +
-				from + (to ? '&ndash;' + to : '+'));
+	for (var i = 0; i < 6; i++) {
+		div.innerHTML += '<i style="background:' 
+		+ legColors[i] + '">&nbsp;&nbsp;</i>&nbsp;&nbsp;' 
+		+ labels[i] + '<br />';
 	}
-
-	div.innerHTML = labels.join('<br>');
 	return div;
   };
 
-  legend.addTo(map);	
+  legend.addTo(map);
 	  
   </script>
 	
