@@ -74,7 +74,7 @@
   	var sd = L.ScalarField.fromASCIIGrid(asc);
     	var layerd = L.canvasLayer.scalarField(sd).addTo(map);
 	layerd.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-	controlLayers.addBaseLayer(layerd, 'District level trends'); //.addOverlay
+	controlLayers.addOverlay(layerd, 'District level'); //addBaseLayer
     	map.fitBounds(layerd.getBounds());
 	  
     	layerd.on('click', function (ed) {
@@ -90,7 +90,7 @@
   	var sc = L.ScalarField.fromASCIIGrid(asc);
     	var layerc = L.canvasLayer.scalarField(sc).addTo(map);
 	layerc.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-	controlLayers.addBaseLayer(layerc, 'Country level trends'); 
+	controlLayers.addOverlay(layerc, 'Country level'); 
 	  
     	layerc.on('click', function (ec) {
 	    if (ec.value !== null) {
@@ -135,7 +135,7 @@
   legend.onAdd = function (map) {
 
   	var div = L.DomUtil.create('div', 'info legend'),
-    	    labels = ['<strong>Productivity category</strong>'],
+    	    labels = ['<strong>Productivity trend</strong>'],
     	    categories = ['1. Low stable','2. Low variable','3. Medium stable','4. Medium variable','5. High stable','6. High variable'];
 
     	for (var i = 0; i < categories.length; i++) {
