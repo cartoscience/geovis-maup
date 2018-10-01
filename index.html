@@ -98,19 +98,25 @@
 	pane: 'labels'
   }).addTo(map);
 	  
-  var legend = L.control({position: 'bottomleft'});
+  var legend = L.control({position: 'bottomright'});
 
-  legend.onAdd = function (map) {
+	legend.onAdd = function (map) {
 
-  	var div = L.DomUtil.create('div', 'legend'),
-		var labels = ["lv", "ls", "mv", "ms", "hv", "hs"],
-	        var legColors = ['f1c468', 'e2783e', '8ccbce', '296597', 'a1c453', '4e8f42'];
-	  
-	for (var i = 0; i < 6; i++) {
-		div.innerHTML += '<i style="background:' 
-		+ legColors[i] + '">&nbsp;&nbsp;</i>&nbsp;&nbsp;' 
-		+ labels[i] + '<br />';
+	var div = L.DomUtil.create('div', 'info legend'),
+			grades = [0, 1, 2, 3, 4, 5, 6],
+			labels = [],
+			from, to;
+
+	for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.push(
+				'<i style="background:' + getColor(from + 1) + '"></i> ' +
+				from + (to ? '&ndash;' + to : '+'));
 	}
+
+	div.innerHTML = labels.join('<br>');
 	return div;
   };
 
