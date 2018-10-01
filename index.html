@@ -86,23 +86,23 @@
   });
 	  
   var legend = L.control({position: 'bottomleft'});
-    legend.onAdd = function (map) {
+  legend.onAdd = function (map) {
 
-    var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>Category</strong>'],
-    categories = [1,2,3,4,5,6];
+  var div = L.DomUtil.create('div', 'info legend');
+  labels = ['<strong>Category</strong>'],
+  categories = [1,2,3,4,5,6];
 
-    for (var i = 0; i < categories.length; i++) {
+  	for (var i = 0; i < categories.length; i++) {
 
             div.innerHTML += 
             labels.push(
-                '<i class="rectangle" style="background:' + getColor(categories[i]) + '"></i> ' +
+                '<i class="circle" style="background:' + getColor(categories[i]) + '"></i> ' +
             (categories[i] ? categories[i] : '+'));
 
-        }
-        div.innerHTML = labels.join('<br>');
-    return div;
-    };
+  	}
+  	div.innerHTML = labels.join('<br>');
+  	return div;
+  };
   legend.addTo(map);
 	  
   map.createPane('labels');
