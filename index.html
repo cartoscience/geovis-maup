@@ -42,8 +42,7 @@
 	    border-width: 0; 
 	    text-shadow: 0 -.00em rgba(0, 0, 0, 0.5);
   }
-  .legend { text-align: left; line-height: 18px; color: #555; } 
-  .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }	  
+	  
   </style>
 	
 </head>
@@ -101,11 +100,11 @@
 
   legend.onAdd = function (map) {
 
-  	var div = L.DomUtil.create('div', 'legend'),
+  	var div = L.DomUtil.create('div', 'info legend'),
 		var labels = ["lv", "ls", "mv", "ms", "hv", "hs"],
 	        var legColors = ['f1c468', 'e2783e', '8ccbce', '296597', 'a1c453', '4e8f42'];
 	  
-	for (var i = 0; i < 6; i++) {
+	for (var i = 0; i < labels.length; i++) {
 		div.innerHTML += labels[i] + '<br>';
 	}
 	return div;
