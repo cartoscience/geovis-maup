@@ -42,7 +42,8 @@
 	    border-width: 0; 
 	    text-shadow: 0 -.00em rgba(0, 0, 0, 0.5);
   }
-	  
+  .legend { text-align: left; line-height: 18px; color: #555; } 
+  .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }	  
   </style>
 	
 </head>
@@ -85,26 +86,6 @@
     	});	  
   });
 	  
-  var legend = L.control({position: 'bottomleft'});
-  legend.onAdd = function (map) {
-
-  var div = L.DomUtil.create('div', 'info legend');
-  labels = ['<strong>Category</strong>'],
-  categories = [1,2,3,4,5,6];
-
-  	for (var i = 0; i < categories.length; i++) {
-
-            div.innerHTML += 
-            labels.push(
-                '<i class="circle" style="background:' + getColor(categories[i]) + '"></i> ' +
-            (categories[i] ? categories[i] : '+'));
-
-  	}
-  	div.innerHTML = labels.join('<br>');
-  	return div;
-  };
-  legend.addTo(map);
-	  
   map.createPane('labels');
   map.getPane('labels').style.zIndex = 650;
   map.getPane('labels').style.pointerEvents = 'none';
@@ -116,6 +97,22 @@
 	ext: 'png',
 	pane: 'labels'
   }).addTo(map);
+	  
+  var legend = L.control({position: 'bottomleft'});
+
+  legend.onAdd = function (map) {
+
+  	var div = L.DomUtil.create('div', 'legend'),
+		labels = ["lv", "ls", "mv", "ms", "hv", "hs"],
+	        grades = [1, 2, 3, 4, 5, 6];
+	  
+	for (var i = 0; i < grades.length; i++) {
+		div.innerHTML+='<i style="background:'+getColor(grades[i])+' ">&nbsp;</i>&nbsp;+labels[i]+'<br/>';
+	}
+	return div;
+  };
+
+  legend.addTo(map);	
 	  
   </script>
 	
