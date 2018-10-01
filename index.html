@@ -74,8 +74,7 @@
   	var sd = L.ScalarField.fromASCIIGrid(asc);
     	var layerd = L.canvasLayer.scalarField(sd).addTo(map);
 	layerd.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7]));  
-	controlLayers.addBaseLayer(layerd, 'District level trends'); 
-	//controlLayers.addOverlay(layerone, 'Country level trends');
+	controlLayers.addBaseLayer(layerd, 'District level trends'); //.addOverlay
     	map.fitBounds(layerd.getBounds());
 	  
     	layerd.on('click', function (ed) {
